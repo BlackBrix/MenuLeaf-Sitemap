@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+  <name>PLG_SYSTEM_MENULEAFSITEMAP</name>
+  <author>BlackBrix</author>
+  <creationDate>November 2026</creationDate>
+  <copyright>Copyright (C) 2026 BlackBrix</copyright>
+  <license>GNU General Public License version 2 or later</license>
+  <version>1.0.1</version>
+  <description>PLG_SYSTEM_MENULEAFSITEMAP_XML_DESCRIPTION</description>
+  <namespace path="src">MenuLeaf\Plugin\System\Menuleafsitemap</namespace>
+  <files>
+    <folder plugin="menuleafsitemap">services</folder>
+    <folder>src</folder>
+  </files>
+  <languages>
+    <language tag="de-DE">language/de-DE/plg_system_menuleafsitemap.ini</language>
+    <language tag="de-DE">language/de-DE/plg_system_menuleafsitemap.sys.ini</language>
+    <language tag="en-GB">language/en-GB/plg_system_menuleafsitemap.ini</language>
+    <language tag="en-GB">language/en-GB/plg_system_menuleafsitemap.sys.ini</language>
+  </languages>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field name="html_token" type="text" default="{menuleafsitemap}" label="PLG_SYSTEM_MENULEAFSITEMAP_TOKEN_LABEL" description="PLG_SYSTEM_MENULEAFSITEMAP_TOKEN_DESC" filter="string" />
+        <field name="xml_key" type="text" default="menuleaf_sitemap" label="PLG_SYSTEM_MENULEAFSITEMAP_XML_KEY_LABEL" description="PLG_SYSTEM_MENULEAFSITEMAP_XML_KEY_DESC" filter="cmd" />
+        <field name="include_archived_articles" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_SYSTEM_MENULEAFSITEMAP_ARCHIVED_LABEL" description="PLG_SYSTEM_MENULEAFSITEMAP_ARCHIVED_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+      </fieldset>
+    </fields>
+  </config>
+</extension>
