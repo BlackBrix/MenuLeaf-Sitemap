@@ -74,8 +74,4 @@ v1.0.1 **does not register an automatic Joomla update server**. To upgrade, inst
 
 ## License
 
-GNU General Public License version 2 or later.4. Verify `https://YOUR-DOMAIN/PATH/?menuleaf_sitemap=xml` and compare the URL count against the previous endpoint.
-5. Update the XML sitemap submission in Search Console and any `Sitemap:` directive in `robots.txt`.
-6. Disable and then uninstall the previous system sitemap plugin only after successful verification. It does not share the Joomla identity or configuration of MenuLeaf Sitemap.
-
-The old endpoint will stop responding after the previous plugin is removed. Ensure that no cached XML responses mask the change while checking.
+GNU General Public License version 2 or later.4.  
