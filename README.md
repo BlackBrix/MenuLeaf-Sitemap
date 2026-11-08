@@ -24,8 +24,8 @@ A lightweight, menu-based HTML and XML sitemap **system plugin** for Joomla 5.4.
    ```
 
 4. Create a Joomla menu item of type **Articles → Single Article**, pointing to the article. This replaces your old OSMap HTML menu item and can use the same `/sitemap` alias after that old menu item has been unpublished or renamed.
-5. HTML page: the resulting Joomla article, such as `https://hilgermissen.eu/joomla/sitemap`.
-6. XML endpoint: `https://hilgermissen.eu/joomla/?menuleaf_sitemap=xml`. Submit this **full URL** in Google Search Console; exact UI behavior for query-based sitemap submission should be checked. Optionally reference it in robots.txt by `Sitemap: https://hilgermissen.eu/joomla/?menuleaf_sitemap=xml`.
+5. HTML page: the resulting Joomla article, such as `https://mydomain.tld/joomla/sitemap`.
+6. XML endpoint: `https://mydomain.tld/joomla/?menuleaf_sitemap=xml`. Submit this **full URL** in Google Search Console; exact UI behavior for query-based sitemap submission should be checked. Optionally reference it in robots.txt by `Sitemap: https://mydomain.tld/joomla/?menuleaf_sitemap=xml`.
 7. Check that XML responds with `Content-Type: application/xml; charset=utf-8` and no Joomla template HTML.
 8. Verify the XML URLs, counts, page accessibility and any search engine's acceptance before disabling/uninstalling OSMap.
 
