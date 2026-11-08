@@ -8,7 +8,7 @@
 - Keep HTML sitemap output, XML endpoint, configuration options and Joomla extension identity unchanged. No schema migration, external dependency or new service is required.
 
 ### Verified
-- Joomla 5.4.10: valid XML with 377 URLs (archived OFF) and 2,174 URLs (archived ON), all unique. Compared with the v1.0.0 baseline, the only deleted URL belongs to the old OSMap sitemap menu item, intentionally removed by the site operator. All remaining URLs and their sequence match.
+- Joomla 5.4.10: valid XML with 377 URLs (archived OFF) and 2,174 URLs (archived ON), all unique. Compared with the v1.0.0 baseline, the only deleted URL belongs to the old 3rd-party-sitemap sitemap menu item, intentionally removed by the site operator. All remaining URLs and their sequence match.
 - Joomla 6.2.0: valid XML with 77 URLs (archived OFF) and 137 URLs (archived ON), all unique and unchanged from the baseline, using 150 test fixtures covering published, archived, restricted, `noindex`, unpublished, and future-dated articles.
 - Joomla 6.2.0 targeted menu checks: a publicly visible menu item targeting a registered-only article was omitted; a publicly visible menu item targeting an unpublished article was omitted; and two public menu items for the same article, with `noindex` on one, removed all routes to that article (archived ON count: 136, with only the expected original URL removed).
 - The inverse assignment of `noindex` between those two menu items was not tested separately.

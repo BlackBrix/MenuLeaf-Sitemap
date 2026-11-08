@@ -1,6 +1,6 @@
 # MenuLeaf Sitemap for Joomla 5 / Joomla 6
 
-A lightweight, menu-based HTML and XML sitemap **system plugin** for Joomla 5.4.x and Joomla 6.2.x. No third-party libraries, custom database tables, scheduled jobs, external API requests or OSMap/Joomlashack dependencies.
+A lightweight, menu-based HTML and XML sitemap **system plugin** for Joomla 5.4.x and Joomla 6.2.x. No third-party libraries, custom database tables, scheduled jobs, external API requests or other 3rd-party-dependencies.
 
 **Release status:** v1.0.1, validated on Joomla **5.4.10** and **6.2.0** on 2026-11-08. Both versions were installed and exercised on actual Joomla installations. This is a tested release, not a pending test candidate. Test results below describe observed behavior; they do not constitute a formal security certification.
 
@@ -23,11 +23,11 @@ A lightweight, menu-based HTML and XML sitemap **system plugin** for Joomla 5.4.
    {menuleafsitemap}
    ```
 
-4. Create a Joomla menu item of type **Articles → Single Article**, pointing to the article. This replaces your old OSMap HTML menu item and can use the same `/sitemap` alias after that old menu item has been unpublished or renamed.
-5. HTML page: the resulting Joomla article, such as `https://mydomain.tld/joomla/sitemap`.
-6. XML endpoint: `https://mydomain.tld/joomla/?menuleaf_sitemap=xml`. Submit this **full URL** in Google Search Console; exact UI behavior for query-based sitemap submission should be checked. Optionally reference it in robots.txt by `Sitemap: https://mydomain.tld/joomla/?menuleaf_sitemap=xml`.
+4. Create a Joomla menu item of type **Articles → Single Article**, pointing to the article. This replaces your old 3rd-party-sitemap HTML menu item and can use the same `/sitemap` alias after that old menu item has been unpublished or renamed.
+5. HTML page: the resulting Joomla article, such as `mydomain.tld/sitemap`.
+6. XML endpoint: `mydomain.tld/?menuleaf_sitemap=xml`. Submit this **full URL** in Google Search Console; exact UI behavior for query-based sitemap submission should be checked. Optionally reference it in robots.txt by `Sitemap: mydomain.tld/?menuleaf_sitemap=xml`.
 7. Check that XML responds with `Content-Type: application/xml; charset=utf-8` and no Joomla template HTML.
-8. Verify the XML URLs, counts, page accessibility and any search engine's acceptance before disabling/uninstalling OSMap.
+8. Verify the XML URLs, counts, page accessibility and any search engine's acceptance before disabling/uninstalling 3rd-party-sitemap.
 
 Plugin parameters: HTML token, XML query parameter key, and **Include archived articles in XML sitemap** (default No). The HTML output does not depend on the archived-articles switch.
 
@@ -53,7 +53,7 @@ The following results were recorded from real installations. Counts reflect the 
 | XML, archived content OFF | 377 unique URLs | 77 unique URLs |
 | XML, archived content ON | 2,174 unique URLs | 137 unique URLs |
 | Valid sitemap XML and duplicate URL check | Passed | Passed |
-| Comparison with 1.0.0 | Exactly one removed URL, the deliberately deleted old OSMap menu item (`/sitemap-old?view=html&id=1`); all others unchanged and in the same order | URL sets and order unchanged for both archive modes |
+| Comparison with 1.0.0 | Exactly one removed URL, the deliberately deleted old 3rd-party-sitemap menu item (`/sitemap-old?view=html&id=1`); all others unchanged and in the same order | URL sets and order unchanged for both archive modes |
 | Direct public menu item targeting a registered-only article | Not separately tested on this installation | Passed (test fixture 066 omitted) |
 | Direct public menu item targeting an unpublished article | Not separately tested on this installation | Passed (test fixture 141 omitted) |
 | Two public menu entries for the same article, one marked `noindex` | Not separately tested on this installation | Passed (all routes for article ID 1, "Mein erster Beitrag", omitted) |
@@ -74,4 +74,17 @@ v1.0.1 **does not register an automatic Joomla update server**. To upgrade, inst
 
 ## License
 
-GNU General Public License version 2 or later.4.  
+GNU General Public License version 2 or later.
+
+## Migration from the previous plugin
+
+This plugin has a **new Joomla extension identity**, not an upgrade of the previously installed extension. Do not run both plugins with their default HTML/XML settings longer than needed for migration.
+
+1. Note the previous plugin's `include_archived_articles` setting, HTML token and XML key (if customized).
+2. Install and enable MenuLeaf Sitemap. Set **Include archived articles** to the same value (the fresh default is **No**).
+3. Edit the existing sitemap article to replace its previous placeholder with `{menuleafsitemap}`. The normal Joomla `/sitemap` article URL can remain unchanged.
+4. Verify `https://YOUR-DOMAIN/PATH/?menuleaf_sitemap=xml` and compare the URL count against the previous endpoint.
+5. Update the XML sitemap submission in Search Console and any `Sitemap:` directive in `robots.txt`.
+6. Disable and then uninstall the previous system sitemap plugin only after successful verification. It does not share the Joomla identity or configuration of MenuLeaf Sitemap.
+
+The old endpoint will stop responding after the previous plugin is removed. Ensure that no cached XML responses mask the change while checking.
